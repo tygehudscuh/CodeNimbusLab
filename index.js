@@ -1,13 +1,13 @@
-function rightSideView(root) {
-  if (!root) return [];
+function subsets(nums) {
   const result = [];
-  let level = 0;
-  const traverse = (node, level) => {
-    if (!node) return;
-    if (result[level] === undefined) result[level] = node.val;
-    traverse(node.right, level + 1);
-    traverse(node.left, level + 1);
-  };
-  traverse(root, level);
+  backtrack(0, []);
   return result;
+  function backtrack(start, current) {
+    result.push([...current]);
+    for (let i = start; i < nums.length; i++) {
+      current.push(nums[i]);
+      backtrack(i + 1, current);
+      current.pop();
+    }
+  }
 }
