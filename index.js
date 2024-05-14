@@ -1,6 +1,9 @@
-const number = 10;
-if (number % 2 === 0) {
-  console.log("Even number");
-} else {
-  console.log("Odd number");
+function getIntersectionNode(headA, headB) {
+  let currA = headA;
+  let currB = headB;
+  while (currA !== currB) {
+    currA = currA ? currA.next : headB;
+    currB = currB ? currB.next : headA;
+  }
+  return currA;
 }
